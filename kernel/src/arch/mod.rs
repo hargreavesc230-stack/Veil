@@ -1,2 +1,4 @@
-// Architecture dispatch layer; additional targets will be added later.
+//! Architecture dispatch layer.
+//!
+//! Additional targets will be added here as the kernel grows.
 pub mod x86_64;

@@ -1,3 +1,4 @@
+# Kernel crate configuration for a freestanding build.
 [package]
 name = "veil_kernel"
 version = "0.1.0"
@@ -5,6 +6,8 @@ edition = "2021"
 
 [lib]
 path = "src/lib.rs"
+# Freestanding kernel: no standard runtime or startup objects are linked.
+crate-type = ["staticlib"]
 
 [dependencies]
 # spin = "0.9"
