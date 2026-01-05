@@ -4,10 +4,12 @@
 //! Veil kernel crate.
 //!
 //! The ABI entry (`_start`) lives in `entry.rs` and forwards into `kernel_main`.
-//! This separation keeps the Rust-level entry independent from linker details.
+//! The Multiboot2 header must reside in the first 32 KiB of the binary, so it
+//! is placed in a dedicated section and kept by the linker.
 
 pub mod arch;
 mod entry;
+mod multiboot;
 mod panic;
 
 /// Rust-level entry, separated from the ABI-level `_start`.

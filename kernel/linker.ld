@@ -12,6 +12,11 @@ SECTIONS
 {
     . = KERNEL_START;
 
+    /* Multiboot2 header must appear early and be 8-byte aligned. */
+    .multiboot2 ALIGN(8) : {
+        KEEP(*(.multiboot2))
+    }
+
     /* Keep the entry symbol and align to page size for future paging. */
     .text ALIGN(4K) : {
         KEEP(*(.text._start))
